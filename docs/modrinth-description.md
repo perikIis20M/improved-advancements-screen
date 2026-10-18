@@ -4,7 +4,7 @@
 
 **Minecraft 26.3 · Fabric · Client-side**
 
-![Modern screen](https://raw.githubusercontent.com/perikIis20M/improved-advancements-screen/main/docs/banners/modern-screen.png)
+![Modern screen](https://raw.githubusercontent.com/perikIis20M/improved-advancements-screen/main/docs/banners/modern-screen.png?v=2)
 
 Track progress with **counts and percentages**, return to your saved tab and map position, and keep advancement layouts consistent.
 
@@ -12,13 +12,13 @@ Find your next goal by **name, description, or item**. Press **Ctrl+F** and sele
 
 ![Modern advancement screen showing tab progress.](https://raw.githubusercontent.com/perikIis20M/improved-advancements-screen/main/docs/screenshots/modern-screen.png)
 
-![What's left](https://raw.githubusercontent.com/perikIis20M/improved-advancements-screen/main/docs/banners/requirements.png)
+![What's left](https://raw.githubusercontent.com/perikIis20M/improved-advancements-screen/main/docs/banners/requirements.png?v=2)
 
 See completed and remaining requirements in advancement tooltips, where Minecraft provides that information. **Completed requirements come first, with missing ones at the end.**
 
 ![Modern tooltip showing completed and remaining requirements.](https://raw.githubusercontent.com/perikIis20M/improved-advancements-screen/main/docs/screenshots/requirements.png)
 
-![Old screen](https://raw.githubusercontent.com/perikIis20M/improved-advancements-screen/main/docs/banners/old-screen.png)
+![Old screen](https://raw.githubusercontent.com/perikIis20M/improved-advancements-screen/main/docs/banners/old-screen.png?v=2)
 
 Enable **Old screen** for an achievement map inspired by Minecraft before 1.12.
 
@@ -28,7 +28,7 @@ Zoom with the mouse wheel and return to your saved position and zoom. Optional t
 
 ![Old achievements screen with a progress tooltip.](https://raw.githubusercontent.com/perikIis20M/improved-advancements-screen/main/docs/screenshots/old-screen.png)
 
-![Make it yours](https://raw.githubusercontent.com/perikIis20M/improved-advancements-screen/main/docs/banners/settings.png)
+![Make it yours](https://raw.githubusercontent.com/perikIis20M/improved-advancements-screen/main/docs/banners/settings.png?v=2)
 
 Configure your preferred view, discovery distance, progress display, tooltips, and appearance through **Mod Menu**.
 

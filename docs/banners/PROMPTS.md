@@ -1,6 +1,6 @@
-# Heading banners
+# Superseded generated banner designs
 
-Created with the built-in image generation tool. These are generated promotional assets, not screenshots or Minecraft UI textures. The three matching variants use modern-screen.png as a style/layout reference. Generation prompts are retained below.
+These prompts document the earlier generated banners, which have been replaced. The current set is built from Minecraft's native bitmap letter shapes and existing icon artwork; see README.md and build-banners.cjs. The old generation prompts are retained here as history and are not used to create the current assets.
 
 ## Modern screen
 
