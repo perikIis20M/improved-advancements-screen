@@ -19,7 +19,8 @@ function framedIcon(kind) {
   const box = kind === 'diamond' ? '367 161 520 520'
     : kind === 'pickaxe' ? '779 725 392 392' : '83 725 392 392';
   let icon = `<svg x="8" y="8" width="80" height="80" viewBox="${box}" overflow="hidden"><image href="data:image/png;base64,${logo}" width="1254" height="1254" style="image-rendering:pixelated"/></svg>`;
-  if (kind === 'paper') icon += `<rect x="23" y="23" width="50" height="50" fill="#82828a"/><g shape-rendering="crispEdges">${paper.map(([x, y, color]) => `<rect x="${24 + x * 3}" y="${24 + y * 3}" width="3" height="3" fill="${color}"/>`).join('')}</g>`;
+  // Clear the old book without painting over the frame's four inset corner marks.
+  if (kind === 'paper') icon += `<path d="M29 23h38v6h6v38h-6v6H29v-6h-6V29h6z" fill="#82828a"/><g shape-rendering="crispEdges">${paper.map(([x, y, color]) => `<rect x="${24 + x * 3}" y="${24 + y * 3}" width="3" height="3" fill="${color}"/>`).join('')}</g>`;
   return icon;
 }
 

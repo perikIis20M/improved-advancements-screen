@@ -12,7 +12,7 @@ Find your next goal by **name, description, or item**. Press **Ctrl+F** and sele
 
 ![Modern advancement screen showing tab progress.](https://raw.githubusercontent.com/perikIis20M/improved-advancements-screen/main/docs/screenshots/modern-screen.png)
 
-![What's left](https://raw.githubusercontent.com/perikIis20M/improved-advancements-screen/main/docs/banners/requirements.png?v=2)
+![What's left](https://raw.githubusercontent.com/perikIis20M/improved-advancements-screen/main/docs/banners/requirements.png?v=3)
 
 See completed and remaining requirements in advancement tooltips, where Minecraft provides that information. **Completed requirements come first, with missing ones at the end.**
 
