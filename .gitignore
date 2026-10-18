@@ -1,0 +1,58 @@
+## General stuff to keep the repo clean
+*.class
+dist
+download
+.DS_Store
+CREDITS-fml.txt
+options.txt
+MinecraftForge-Credits.txt
+MinecraftForge-License.txt
+
+## ForgeGradle
+/run
+/out
+/output
+
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea/*
+
+# gradle
+build
+.gradle
+
+# Architectury
+.architectury-transformer
+
+# other
+eclipse
+run
+
+
+## minecraft
+/config/
+/mods/
+/saves/
+/logs/
+/crash-reports/
+/screenshots/
+
+# Local development and publishing files
+/backups/
+/PORT-NOTES.md
+.env
+.env.*
+!.env.example
+*.log
+*.pending

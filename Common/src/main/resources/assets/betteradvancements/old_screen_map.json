@@ -1,0 +1,632 @@
+{
+  "minecraft:story/root": {
+    "x": 0,
+    "y": 0,
+    "parent": null
+  },
+  "minecraft:story/mine_stone": {
+    "x": 48,
+    "y": 48,
+    "parent": "minecraft:story/root"
+  },
+  "minecraft:story/upgrade_tools": {
+    "x": 96,
+    "y": 48,
+    "parent": "minecraft:story/mine_stone"
+  },
+  "minecraft:story/smelt_iron": {
+    "x": 48,
+    "y": 96,
+    "parent": "minecraft:story/upgrade_tools"
+  },
+  "minecraft:story/iron_tools": {
+    "x": 0,
+    "y": 96,
+    "parent": "minecraft:story/smelt_iron"
+  },
+  "minecraft:story/mine_diamond": {
+    "x": -48,
+    "y": 120,
+    "parent": "minecraft:story/iron_tools"
+  },
+  "minecraft:story/enchant_item": {
+    "x": -96,
+    "y": 96,
+    "parent": "minecraft:story/mine_diamond"
+  },
+  "minecraft:story/shiny_gear": {
+    "x": -96,
+    "y": 48,
+    "parent": "minecraft:story/mine_diamond"
+  },
+  "minecraft:story/obtain_armor": {
+    "x": 84,
+    "y": 132,
+    "parent": "minecraft:story/smelt_iron"
+  },
+  "minecraft:story/deflect_arrow": {
+    "x": 120,
+    "y": 120,
+    "parent": "minecraft:story/obtain_armor"
+  },
+  "minecraft:story/lava_bucket": {
+    "x": 0,
+    "y": 144,
+    "parent": "minecraft:story/smelt_iron"
+  },
+  "minecraft:story/form_obsidian": {
+    "x": 0,
+    "y": 192,
+    "parent": "minecraft:story/lava_bucket"
+  },
+  "minecraft:story/enter_the_nether": {
+    "x": 0,
+    "y": 240,
+    "parent": "minecraft:story/form_obsidian"
+  },
+  "minecraft:story/follow_ender_eye": {
+    "x": 48,
+    "y": 312,
+    "parent": "minecraft:nether/obtain_blaze_rod"
+  },
+  "minecraft:story/enter_the_end": {
+    "x": 96,
+    "y": 312,
+    "parent": "minecraft:story/follow_ender_eye"
+  },
+  "minecraft:story/cure_zombie_villager": {
+    "x": 96,
+    "y": 264,
+    "parent": "minecraft:nether/brew_potion"
+  },
+  "minecraft:nether/root": {
+    "x": -48,
+    "y": 240,
+    "parent": "minecraft:story/enter_the_nether"
+  },
+  "minecraft:nether/find_fortress": {
+    "x": -48,
+    "y": 288,
+    "parent": "minecraft:nether/root"
+  },
+  "minecraft:nether/obtain_blaze_rod": {
+    "x": 0,
+    "y": 288,
+    "parent": "minecraft:nether/find_fortress"
+  },
+  "minecraft:nether/brew_potion": {
+    "x": 48,
+    "y": 264,
+    "parent": "minecraft:nether/obtain_blaze_rod"
+  },
+  "minecraft:nether/all_potions": {
+    "x": 48,
+    "y": 216,
+    "parent": "minecraft:nether/brew_potion"
+  },
+  "minecraft:nether/all_effects": {
+    "x": 96,
+    "y": 216,
+    "parent": "minecraft:nether/all_potions"
+  },
+  "minecraft:nether/get_wither_skull": {
+    "x": -96,
+    "y": 312,
+    "parent": "minecraft:nether/find_fortress"
+  },
+  "minecraft:nether/summon_wither": {
+    "x": -96,
+    "y": 360,
+    "parent": "minecraft:nether/get_wither_skull"
+  },
+  "minecraft:nether/create_beacon": {
+    "x": -48,
+    "y": 360,
+    "parent": "minecraft:nether/summon_wither"
+  },
+  "minecraft:nether/create_full_beacon": {
+    "x": 0,
+    "y": 360,
+    "parent": "minecraft:nether/create_beacon"
+  },
+  "minecraft:nether/obtain_crying_obsidian": {
+    "x": -48,
+    "y": 192,
+    "parent": "minecraft:story/form_obsidian"
+  },
+  "minecraft:nether/charge_respawn_anchor": {
+    "x": -96,
+    "y": 192,
+    "parent": "minecraft:nether/obtain_crying_obsidian"
+  },
+  "minecraft:nether/distract_piglin": {
+    "x": -144,
+    "y": 192,
+    "parent": "minecraft:nether/root"
+  },
+  "minecraft:nether/find_bastion": {
+    "x": -192,
+    "y": 192,
+    "parent": "minecraft:nether/distract_piglin"
+  },
+  "minecraft:nether/loot_bastion": {
+    "x": -240,
+    "y": 192,
+    "parent": "minecraft:nether/find_bastion"
+  },
+  "minecraft:nether/obtain_ancient_debris": {
+    "x": -240,
+    "y": 144,
+    "parent": "minecraft:nether/find_bastion"
+  },
+  "minecraft:nether/netherite_armor": {
+    "x": -288,
+    "y": 144,
+    "parent": "minecraft:nether/obtain_ancient_debris"
+  },
+  "minecraft:husbandry/obtain_netherite_hoe": {
+    "x": -336,
+    "y": 144,
+    "parent": "minecraft:nether/obtain_ancient_debris"
+  },
+  "minecraft:nether/return_to_sender": {
+    "x": -144,
+    "y": 240,
+    "parent": "minecraft:nether/root"
+  },
+  "minecraft:nether/uneasy_alliance": {
+    "x": -192,
+    "y": 240,
+    "parent": "minecraft:nether/return_to_sender"
+  },
+  "minecraft:husbandry/place_dried_ghast_in_water": {
+    "x": -288,
+    "y": 288,
+    "parent": "minecraft:nether/return_to_sender"
+  },
+  "minecraft:nether/ride_strider": {
+    "x": -144,
+    "y": 288,
+    "parent": "minecraft:nether/root"
+  },
+  "minecraft:nether/explore_nether": {
+    "x": -192,
+    "y": 288,
+    "parent": "minecraft:nether/ride_strider"
+  },
+  "minecraft:nether/ride_strider_in_overworld_lava": {
+    "x": -240,
+    "y": 288,
+    "parent": "minecraft:nether/explore_nether"
+  },
+  "minecraft:nether/fast_travel": {
+    "x": -144,
+    "y": 336,
+    "parent": "minecraft:nether/explore_nether"
+  },
+  "minecraft:end/root": {
+    "x": 120,
+    "y": 360,
+    "parent": "minecraft:story/enter_the_end"
+  },
+  "minecraft:end/kill_dragon": {
+    "x": 168,
+    "y": 360,
+    "parent": "minecraft:end/root"
+  },
+  "minecraft:end/dragon_egg": {
+    "x": 216,
+    "y": 360,
+    "parent": "minecraft:end/kill_dragon"
+  },
+  "minecraft:end/enter_end_gateway": {
+    "x": 264,
+    "y": 360,
+    "parent": "minecraft:end/kill_dragon"
+  },
+  "minecraft:end/find_end_city": {
+    "x": 312,
+    "y": 360,
+    "parent": "minecraft:end/enter_end_gateway"
+  },
+  "minecraft:end/elytra": {
+    "x": 360,
+    "y": 360,
+    "parent": "minecraft:end/find_end_city"
+  },
+  "minecraft:end/levitate": {
+    "x": 360,
+    "y": 312,
+    "parent": "minecraft:end/find_end_city"
+  },
+  "minecraft:end/dragon_breath": {
+    "x": 264,
+    "y": 312,
+    "parent": "minecraft:end/kill_dragon"
+  },
+  "minecraft:end/respawn_dragon": {
+    "x": 312,
+    "y": 264,
+    "parent": "minecraft:end/dragon_breath"
+  },
+  "minecraft:adventure/spyglass_at_dragon": {
+    "x": 216,
+    "y": 264,
+    "parent": "minecraft:end/kill_dragon"
+  },
+  "minecraft:adventure/root": {
+    "x": 48,
+    "y": 0,
+    "parent": "minecraft:story/root"
+  },
+  "minecraft:adventure/kill_a_mob": {
+    "x": 96,
+    "y": -24,
+    "parent": "minecraft:adventure/root"
+  },
+  "minecraft:adventure/shoot_arrow": {
+    "x": 144,
+    "y": -24,
+    "parent": "minecraft:adventure/kill_a_mob"
+  },
+  "minecraft:adventure/sniper_duel": {
+    "x": 144,
+    "y": -72,
+    "parent": "minecraft:adventure/shoot_arrow"
+  },
+  "minecraft:adventure/bullseye": {
+    "x": 192,
+    "y": -72,
+    "parent": "minecraft:adventure/shoot_arrow"
+  },
+  "minecraft:adventure/ol_betsy": {
+    "x": 192,
+    "y": -24,
+    "parent": "minecraft:adventure/shoot_arrow"
+  },
+  "minecraft:adventure/whos_the_pillager_now": {
+    "x": 240,
+    "y": -24,
+    "parent": "minecraft:adventure/ol_betsy"
+  },
+  "minecraft:adventure/two_birds_one_arrow": {
+    "x": 240,
+    "y": -72,
+    "parent": "minecraft:adventure/ol_betsy"
+  },
+  "minecraft:adventure/arbalistic": {
+    "x": 288,
+    "y": -72,
+    "parent": "minecraft:adventure/two_birds_one_arrow"
+  },
+  "minecraft:adventure/spear_many_mobs": {
+    "x": 96,
+    "y": -72,
+    "parent": "minecraft:adventure/kill_a_mob"
+  },
+  "minecraft:adventure/throw_trident": {
+    "x": 144,
+    "y": 24,
+    "parent": "minecraft:adventure/kill_a_mob"
+  },
+  "minecraft:adventure/very_very_frightening": {
+    "x": 192,
+    "y": 24,
+    "parent": "minecraft:adventure/throw_trident"
+  },
+  "minecraft:adventure/kill_all_mobs": {
+    "x": 96,
+    "y": 12,
+    "parent": "minecraft:adventure/kill_a_mob"
+  },
+  "minecraft:adventure/voluntary_exile": {
+    "x": 144,
+    "y": 72,
+    "parent": "minecraft:adventure/kill_a_mob"
+  },
+  "minecraft:adventure/totem_of_undying": {
+    "x": 192,
+    "y": 72,
+    "parent": "minecraft:adventure/voluntary_exile"
+  },
+  "minecraft:adventure/hero_of_the_village": {
+    "x": 240,
+    "y": 72,
+    "parent": "minecraft:adventure/voluntary_exile"
+  },
+  "minecraft:husbandry/allay_deliver_item_to_player": {
+    "x": 288,
+    "y": 72,
+    "parent": "minecraft:adventure/voluntary_exile"
+  },
+  "minecraft:husbandry/allay_deliver_cake_to_note_block": {
+    "x": 336,
+    "y": 72,
+    "parent": "minecraft:husbandry/allay_deliver_item_to_player"
+  },
+  "minecraft:adventure/trade": {
+    "x": 48,
+    "y": -48,
+    "parent": "minecraft:adventure/root"
+  },
+  "minecraft:adventure/summon_iron_golem": {
+    "x": 48,
+    "y": -96,
+    "parent": "minecraft:adventure/trade"
+  },
+  "minecraft:adventure/trade_at_world_height": {
+    "x": 0,
+    "y": -96,
+    "parent": "minecraft:adventure/trade"
+  },
+  "minecraft:adventure/lightning_rod_with_villager_no_fire": {
+    "x": 96,
+    "y": -120,
+    "parent": "minecraft:adventure/summon_iron_golem"
+  },
+  "minecraft:adventure/read_power_of_chiseled_bookshelf": {
+    "x": -48,
+    "y": 72,
+    "parent": "minecraft:story/enchant_item"
+  },
+  "minecraft:adventure/crafters_crafting_crafters": {
+    "x": -48,
+    "y": 24,
+    "parent": "minecraft:story/iron_tools"
+  },
+  "minecraft:adventure/trim_with_any_armor_pattern": {
+    "x": 120,
+    "y": 168,
+    "parent": "minecraft:story/obtain_armor"
+  },
+  "minecraft:adventure/trim_with_all_exclusive_armor_patterns": {
+    "x": 168,
+    "y": 168,
+    "parent": "minecraft:adventure/trim_with_any_armor_pattern"
+  },
+  "minecraft:adventure/sleep_in_bed": {
+    "x": 0,
+    "y": -48,
+    "parent": "minecraft:story/root"
+  },
+  "minecraft:adventure/adventuring_time": {
+    "x": -48,
+    "y": -96,
+    "parent": "minecraft:adventure/sleep_in_bed"
+  },
+  "minecraft:husbandry/ride_a_boat_with_a_goat": {
+    "x": -96,
+    "y": -96,
+    "parent": "minecraft:adventure/adventuring_time"
+  },
+  "minecraft:adventure/walk_on_powder_snow_with_leather_boots": {
+    "x": -48,
+    "y": -48,
+    "parent": "minecraft:adventure/sleep_in_bed"
+  },
+  "minecraft:adventure/fall_from_world_height": {
+    "x": -144,
+    "y": -96,
+    "parent": "minecraft:adventure/walk_on_powder_snow_with_leather_boots"
+  },
+  "minecraft:adventure/play_jukebox_in_meadows": {
+    "x": -144,
+    "y": -48,
+    "parent": "minecraft:adventure/sleep_in_bed"
+  },
+  "minecraft:adventure/use_lodestone": {
+    "x": 72,
+    "y": 168,
+    "parent": "minecraft:story/iron_tools"
+  },
+  "minecraft:adventure/salvage_sherd": {
+    "x": -240,
+    "y": -96,
+    "parent": "minecraft:adventure/adventuring_time"
+  },
+  "minecraft:adventure/craft_decorated_pot_using_only_sherds": {
+    "x": -288,
+    "y": -96,
+    "parent": "minecraft:adventure/salvage_sherd"
+  },
+  "minecraft:husbandry/obtain_sniffer_egg": {
+    "x": -336,
+    "y": -96,
+    "parent": "minecraft:adventure/salvage_sherd"
+  },
+  "minecraft:husbandry/feed_snifflet": {
+    "x": -384,
+    "y": -96,
+    "parent": "minecraft:husbandry/obtain_sniffer_egg"
+  },
+  "minecraft:husbandry/plant_any_sniffer_seed": {
+    "x": -432,
+    "y": -96,
+    "parent": "minecraft:husbandry/feed_snifflet"
+  },
+  "minecraft:adventure/spyglass_at_parrot": {
+    "x": -384,
+    "y": -48,
+    "parent": "minecraft:husbandry/tame_an_animal"
+  },
+  "minecraft:adventure/spyglass_at_ghast": {
+    "x": -240,
+    "y": 240,
+    "parent": "minecraft:nether/return_to_sender"
+  },
+  "minecraft:adventure/minecraft_trials_edition": {
+    "x": 216,
+    "y": 120,
+    "parent": "minecraft:story/deflect_arrow"
+  },
+  "minecraft:adventure/under_lock_and_key": {
+    "x": 264,
+    "y": 120,
+    "parent": "minecraft:adventure/minecraft_trials_edition"
+  },
+  "minecraft:adventure/revaulting": {
+    "x": 312,
+    "y": 120,
+    "parent": "minecraft:adventure/under_lock_and_key"
+  },
+  "minecraft:adventure/blowback": {
+    "x": 216,
+    "y": 168,
+    "parent": "minecraft:adventure/minecraft_trials_edition"
+  },
+  "minecraft:adventure/overoverkill": {
+    "x": 264,
+    "y": 216,
+    "parent": "minecraft:adventure/blowback"
+  },
+  "minecraft:adventure/who_needs_rockets": {
+    "x": 312,
+    "y": 216,
+    "parent": "minecraft:adventure/blowback"
+  },
+  "minecraft:adventure/lighten_up": {
+    "x": 360,
+    "y": 168,
+    "parent": "minecraft:adventure/revaulting"
+  },
+  "minecraft:adventure/avoid_vibration": {
+    "x": 216,
+    "y": 216,
+    "parent": "minecraft:adventure/minecraft_trials_edition"
+  },
+  "minecraft:adventure/heart_transplanter": {
+    "x": 168,
+    "y": 264,
+    "parent": "minecraft:adventure/avoid_vibration"
+  },
+  "minecraft:adventure/kill_mob_near_sculk_catalyst": {
+    "x": 168,
+    "y": 216,
+    "parent": "minecraft:adventure/avoid_vibration"
+  },
+  "minecraft:husbandry/root": {
+    "x": -96,
+    "y": 0,
+    "parent": "minecraft:story/root"
+  },
+  "minecraft:husbandry/plant_seed": {
+    "x": -144,
+    "y": 0,
+    "parent": "minecraft:husbandry/root"
+  },
+  "minecraft:husbandry/balanced_diet": {
+    "x": -192,
+    "y": 0,
+    "parent": "minecraft:husbandry/plant_seed"
+  },
+  "minecraft:husbandry/breed_an_animal": {
+    "x": -96,
+    "y": -48,
+    "parent": "minecraft:husbandry/root"
+  },
+  "minecraft:husbandry/bred_all_animals": {
+    "x": -192,
+    "y": -96,
+    "parent": "minecraft:husbandry/breed_an_animal"
+  },
+  "minecraft:husbandry/tame_an_animal": {
+    "x": -192,
+    "y": -48,
+    "parent": "minecraft:husbandry/breed_an_animal"
+  },
+  "minecraft:husbandry/complete_catalogue": {
+    "x": -240,
+    "y": -48,
+    "parent": "minecraft:husbandry/tame_an_animal"
+  },
+  "minecraft:husbandry/whole_pack": {
+    "x": -240,
+    "y": 0,
+    "parent": "minecraft:husbandry/tame_an_animal"
+  },
+  "minecraft:adventure/brush_armadillo": {
+    "x": -288,
+    "y": 48,
+    "parent": "minecraft:husbandry/tame_an_animal"
+  },
+  "minecraft:husbandry/remove_wolf_armor": {
+    "x": -288,
+    "y": 0,
+    "parent": "minecraft:adventure/brush_armadillo"
+  },
+  "minecraft:husbandry/repair_wolf_armor": {
+    "x": -336,
+    "y": 0,
+    "parent": "minecraft:husbandry/remove_wolf_armor"
+  },
+  "minecraft:husbandry/safely_harvest_honey": {
+    "x": -144,
+    "y": 48,
+    "parent": "minecraft:husbandry/root"
+  },
+  "minecraft:husbandry/silk_touch_nest": {
+    "x": -192,
+    "y": 48,
+    "parent": "minecraft:husbandry/safely_harvest_honey"
+  },
+  "minecraft:adventure/honey_block_slide": {
+    "x": -240,
+    "y": 48,
+    "parent": "minecraft:husbandry/safely_harvest_honey"
+  },
+  "minecraft:husbandry/wax_on": {
+    "x": -144,
+    "y": 96,
+    "parent": "minecraft:husbandry/safely_harvest_honey"
+  },
+  "minecraft:husbandry/wax_off": {
+    "x": -192,
+    "y": 96,
+    "parent": "minecraft:husbandry/wax_on"
+  },
+  "minecraft:husbandry/fishy_business": {
+    "x": -336,
+    "y": 48,
+    "parent": "minecraft:husbandry/root"
+  },
+  "minecraft:husbandry/tactical_fishing": {
+    "x": -336,
+    "y": 96,
+    "parent": "minecraft:husbandry/fishy_business"
+  },
+  "minecraft:husbandry/axolotl_in_a_bucket": {
+    "x": -384,
+    "y": 96,
+    "parent": "minecraft:husbandry/tactical_fishing"
+  },
+  "minecraft:husbandry/kill_axolotl_target": {
+    "x": -432,
+    "y": 96,
+    "parent": "minecraft:husbandry/axolotl_in_a_bucket"
+  },
+  "minecraft:husbandry/tadpole_in_a_bucket": {
+    "x": -336,
+    "y": 192,
+    "parent": "minecraft:husbandry/tactical_fishing"
+  },
+  "minecraft:husbandry/leash_all_frog_variants": {
+    "x": -384,
+    "y": 192,
+    "parent": "minecraft:husbandry/tadpole_in_a_bucket"
+  },
+  "minecraft:husbandry/froglights": {
+    "x": -384,
+    "y": 240,
+    "parent": "minecraft:husbandry/leash_all_frog_variants"
+  },
+  "minecraft:husbandry/make_a_sign_glow": {
+    "x": -288,
+    "y": 96,
+    "parent": "minecraft:husbandry/tactical_fishing"
+  },
+  "minecraft:husbandry/uh_oh": {
+    "x": -384,
+    "y": 0,
+    "parent": "minecraft:husbandry/tame_an_animal"
+  }
+}

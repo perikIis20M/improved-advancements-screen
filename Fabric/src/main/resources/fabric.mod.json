@@ -1,0 +1,41 @@
+{
+    "schemaVersion": 1,
+    "id": "betteradvancements",
+    "version": "${version}",
+  
+    "name": "Improved Advancements Screen",
+    "description": "A configurable advancements screen with progress, stable tabs, and remembered position.",
+    "icon": "icon.png",
+    "authors": [
+      "periklis20M",
+      "JohnFG"
+    ],
+    "contributors": ["${modAuthor} (original Better Advancements)"],
+    "contact": {
+      "homepage": "https://github.com/${githubUrl}",
+      "sources": "https://github.com/${githubUrl}",
+      "issues": "https://github.com/${githubUrl}/issues"
+    },
+    "license": "\"Don't Be a Jerk\" non-commercial care-free license",
+    "environment": "client",
+    "entrypoints": {
+      "client" : [
+        "betteradvancements.fabric.BetterAdvancements"
+      ],
+      "modmenu": [
+        "betteradvancements.fabric.config.BetterAdvancementsModMenu"
+      ]
+    },
+    "mixins": [
+      "betteradvancements.mixins.json"
+    ],
+    "depends": {
+      "fabricloader": ">=0.19",
+      "fabric-api": "*",
+      "minecraft": "26.3.x",
+      "java": ">=25"
+    },
+    "suggests": {
+    },
+    "accessWidener": "betteradvancements.accesswidener"
+}
