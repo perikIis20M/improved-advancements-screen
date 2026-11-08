@@ -13,9 +13,9 @@ View memory and stable layout are separate: one remembers where you were looking
 
 ## Old screen
 
-- Old screen: enables the classic connected map.
-- Screen size (old): resizes its window without enlarging its contents.
-- Old screen discovery distance: how far ahead locked goals are revealed.
+- Toggle: enables the classic connected map.
+- Screen size: resizes its window without enlarging its contents.
+- Discovery distance: how far ahead locked goals are revealed.
 - Remember map position and zoom: restores the classic camera independently of modern view memory.
 
 ## Advancement Details
