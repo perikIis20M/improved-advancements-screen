@@ -37,13 +37,8 @@ architectury {
     minecraft = minecraftVersion
 }
 
-//adds the build number to the end of the version string if on a build server
-var buildNumber = System.getenv("GITHUB_RUN_NUMBER")
-if (buildNumber == null) {
-    buildNumber = "local"
-}
-
-version = "${specificationVersion}-${buildNumber}"
+// Keep the JAR metadata and filename identical to the published version number.
+version = specificationVersion
 group = modGroup
 base {
     archivesName.set(modFileName)
