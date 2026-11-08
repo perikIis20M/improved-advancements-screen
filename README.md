@@ -18,7 +18,7 @@ Minecraft still controls advancement completion and the information sent to the 
 
 Install the mod on your Fabric 26.3 client with **Fabric API**. Install **Mod Menu** and **Cloth Config** to access its configuration.
 
-To enable the Old screen, open **Mods → Improved Advancements Screen → Configure → Screen**.
+To enable the Old screen, open **Mods → Improved Advancements Screen → Configure → Old screen**.
 
 ## Build from source
 

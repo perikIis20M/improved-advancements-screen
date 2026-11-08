@@ -182,7 +182,7 @@ public final class LegacyAchievementsScreen extends Screen implements ClientAdva
             // Original openInventory start: column*24 - 141/2 - 12, row*24 - 141/2.
             scrollX = first.x() - 82 - (geometry.mapWidth() - MAP_WIDTH) / 2.0;
             scrollY = first.y() - 70 - (geometry.mapHeight() - MAP_HEIGHT) / 2.0;
-            if (BetterAdvancementsScreen.rememberPosition && AdvancementViewState.hasLegacyScreenPosition
+            if (BetterAdvancementsScreen.rememberOldPosition && AdvancementViewState.hasLegacyScreenPosition
                 && AdvancementViewState.positionsByLayout.containsKey(LAYOUT_KEY)) {
                 scrollX = AdvancementViewState.legacyScreenScrollX;
                 scrollY = AdvancementViewState.legacyScreenScrollY;
@@ -535,7 +535,7 @@ public final class LegacyAchievementsScreen extends Screen implements ClientAdva
 
     @Override
     public void removed() {
-        if (BetterAdvancementsScreen.rememberPosition && positioned) {
+        if (BetterAdvancementsScreen.rememberOldPosition && positioned) {
             AdvancementViewState.hasLegacyScreenPosition = true;
             AdvancementViewState.legacyScreenScrollX = targetX;
             AdvancementViewState.legacyScreenScrollY = targetY;

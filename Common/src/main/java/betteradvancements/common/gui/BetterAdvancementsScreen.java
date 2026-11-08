@@ -52,6 +52,7 @@ public class BetterAdvancementsScreen extends Screen implements ClientAdvancemen
     public static int windowScale = ScreenSize.DEFAULT;
     public static boolean showProgress = true;
     public static boolean rememberPosition = true;
+    public static boolean rememberOldPosition = true;
     public static boolean stableLayout = true;
     private final OldAdvancementsView oldView = new OldAdvancementsView();
     private boolean draggingOldMap;

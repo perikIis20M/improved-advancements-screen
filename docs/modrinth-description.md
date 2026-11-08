@@ -32,7 +32,7 @@ Zoom with the mouse wheel and return to your saved position and zoom. Optional t
 
 Configure your preferred view, discovery distance, progress display, tooltips, and appearance through **Mod Menu**.
 
-Enable Old screen through **Mods → Improved Advancements Screen → Configure → Screen**.
+Enable Old screen through **Mods → Improved Advancements Screen → Configure → Old screen**.
 
 ![Configuration menu showing screen and progress options.](https://raw.githubusercontent.com/perikIis20M/improved-advancements-screen/main/docs/screenshots/settings.png)
 

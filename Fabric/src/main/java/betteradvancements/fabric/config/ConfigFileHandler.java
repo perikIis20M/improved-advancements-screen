@@ -1,12 +1,7 @@
 package betteradvancements.fabric.config;
 
 import betteradvancements.common.advancements.BetterDisplayInfo;
-import betteradvancements.common.gui.BetterAdvancementTab;
-import betteradvancements.common.gui.BetterAdvancementTabType;
-import betteradvancements.common.gui.BetterAdvancementsScreen;
-import betteradvancements.common.gui.BetterAdvancementsScreenButton;
-import betteradvancements.common.gui.OldScreenVisibility;
-import betteradvancements.common.gui.ScreenSize;
+import betteradvancements.common.gui.*;
 import betteradvancements.common.reference.Constants;
 import betteradvancements.common.util.ColorHelper;
 import betteradvancements.common.util.CriteriaDetail;
@@ -15,135 +10,80 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import net.fabricmc.loader.api.FabricLoader;
-
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class ConfigFileHandler {
     public static void readFromConfig() {
         JsonObject root = new JsonObject();
         try {
-            File configFile = getConfigFile();
-            if (!configFile.exists()) {
-                writeToConfig();
-                configFile = getConfigFile();
-            }
-            try (FileReader reader = new FileReader(configFile)) {
+            File file = getConfigFile();
+            if (file.exists()) try (FileReader reader = new FileReader(file)) {
                 root = JsonParser.parseReader(reader).getAsJsonObject();
             }
-        } catch (IOException | RuntimeException e) {
-            Constants.log.error(e);
-        }
-
-        if (root.has("defaultUncompletedIconColor")) {
-            BetterDisplayInfo.defaultUncompletedIconColor = ColorHelper.RGB(root.get("defaultUncompletedIconColor").getAsString());
-        }
-        if (root.has("defaultUncompletedTitleColor")) {
-            BetterDisplayInfo.defaultUncompletedTitleColor = ColorHelper.RGB(root.get("defaultUncompletedTitleColor").getAsString());
-        }
-        if (root.has("defaultCompletedIconColor")) {
-            BetterDisplayInfo.defaultCompletedIconColor = ColorHelper.RGB(root.get("defaultCompletedIconColor").getAsString());
-        }
-        if (root.has("defaultCompletedTitleColor")) {
-            BetterDisplayInfo.defaultCompletedTitleColor = ColorHelper.RGB(root.get("defaultCompletedTitleColor").getAsString());
-        }
-        if (root.has("doAdvancementsBackgroundFade")) {
-            BetterAdvancementTab.doFade = root.get("doAdvancementsBackgroundFade").getAsBoolean();
-        }
-        if (root.has("showDebugCoordinates")) {
-            BetterAdvancementsScreen.showDebugCoordinates = root.get("showDebugCoordinates").getAsBoolean();
-        }
-        if (root.has("orderTabsAlphabetically")) {
-            BetterAdvancementsScreen.orderTabsAlphabetically = root.get("orderTabsAlphabetically").getAsBoolean();
-        }
-        BetterAdvancementsScreen.windowScale = root.has("windowScale")
-            ? ScreenSize.clamp(root.get("windowScale").getAsInt()) : ScreenSize.DEFAULT;
-        if (root.has("oldScreen")) BetterAdvancementsScreen.combinedMode = root.get("oldScreen").getAsBoolean();
-        BetterAdvancementsScreen.oldScreenSize = root.has("oldScreenSize")
-            ? ScreenSize.clamp(root.get("oldScreenSize").getAsInt()) : ScreenSize.DEFAULT;
-        BetterAdvancementsScreen.oldScreenTooltipProgress = root.has("oldScreenTooltipProgress")
-            && root.get("oldScreenTooltipProgress").getAsBoolean();
-        BetterAdvancementsScreen.oldScreenRevealDepth = root.has("oldScreenRevealDepth")
-            ? OldScreenVisibility.clampRevealDepth(root.get("oldScreenRevealDepth").getAsInt())
-            : OldScreenVisibility.DEFAULT_REVEAL_DEPTH;
-        if (root.has("showProgress")) BetterAdvancementsScreen.showProgress = root.get("showProgress").getAsBoolean();
-        if (root.has("rememberPosition")) BetterAdvancementsScreen.rememberPosition = root.get("rememberPosition").getAsBoolean();
-        if (root.has("stableLayout")) BetterAdvancementsScreen.stableLayout = root.get("stableLayout").getAsBoolean();
-        if (root.has("criteriaDetail")) {
-            CriterionGrid.detailLevel = CriteriaDetail.fromName(root.get("criteriaDetail").getAsString());
-        }
-        if (root.has("criteriaDetailRequiresShift")) {
-            CriterionGrid.requiresShift = root.get("criteriaDetailRequiresShift").getAsBoolean();
-        }
-        if (root.has("colorWholeCriteriaText")) {
-            CriterionGrid.colorWholeCriteriaText = root.get("colorWholeCriteriaText").getAsBoolean();
-        }
-        if (root.has("criteriaRotationSpeed")) {
-            CriterionGrid.criteriaRotationSpeed = root.get("criteriaRotationSpeed").getAsInt();
-        }
-        if (root.has("addInventoryButton")) {
-            BetterAdvancementsScreenButton.addToInventory = root.get("addInventoryButton").getAsBoolean();
-        }
-        if (root.has("defaultDrawDirectLines")) {
-            BetterDisplayInfo.defaultDrawDirectLines = root.get("defaultDrawDirectLines").getAsBoolean();
-        }
-        if (root.has("defaultHideLines")) {
-            BetterDisplayInfo.defaultHideLines = root.get("defaultHideLines").getAsBoolean();
-        }
-        if (root.has("defaultCompletedLineColor")) {
-            BetterDisplayInfo.defaultCompletedLineColor = ColorHelper.RGB(root.get("defaultCompletedLineColor").getAsString());
-        }
-        if (root.has("defaultUncompletedLineColor")) {
-            BetterDisplayInfo.defaultUncompletedLineColor = ColorHelper.RGB(root.get("defaultUncompletedLineColor").getAsString());
-        }
-        if (root.has("onlyUseAboveAdvancementTabs")) {
-            BetterAdvancementTabType.onlyUseAbove = root.get("onlyUseAboveAdvancementTabs").getAsBoolean();
-        }
-        if (root.has("keepAdvancementsTitle")) {
-            BetterAdvancementsScreen.keepAdvancementsTitle = root.get("keepAdvancementsTitle").getAsBoolean();
-        }
+        } catch (IOException | RuntimeException error) { Constants.log.error(error); }
+        applyConfig(root);
     }
 
-    public static void writeToConfig() {
-        JsonObject root = new JsonObject();
+    // Pure data boundary: legacy settings migrate without touching the user's file on startup.
+    static void applyConfig(JsonObject root) {
+        BetterAdvancementsScreen.windowScale = ScreenSize.clamp(integer(root, "windowScale", ScreenSize.DEFAULT));
+        BetterAdvancementsScreen.combinedMode = bool(root, "oldScreen", false);
+        BetterAdvancementsScreen.oldScreenSize = ScreenSize.clamp(integer(root, "oldScreenSize", ScreenSize.DEFAULT));
+        BetterAdvancementsScreen.oldScreenRevealDepth = OldScreenVisibility.clampRevealDepth(integer(root, "oldScreenRevealDepth", OldScreenVisibility.DEFAULT_REVEAL_DEPTH));
+        BetterAdvancementsScreen.showProgress = bool(root, "showProgress", true);
+        BetterAdvancementsScreen.rememberPosition = bool(root, "rememberPosition", true);
+        BetterAdvancementsScreen.rememberOldPosition = bool(root, "rememberOldPosition", BetterAdvancementsScreen.rememberPosition);
+        BetterAdvancementsScreen.stableLayout = bool(root, "stableLayout", true);
+        boolean requirements = root.has("showRequirements") ? root.get("showRequirements").getAsBoolean()
+            : !root.has("criteriaDetail") || CriteriaDetail.fromName(root.get("criteriaDetail").getAsString()) != CriteriaDetail.OFF;
+        ConfigValues.setRequirements(requirements);
+        CriterionGrid.requiresShift = bool(root, "criteriaDetailRequiresShift", false);
+        CriterionGrid.criteriaRotationSpeed = Math.clamp(integer(root, "criteriaRotationSpeed", 3), 1, 10);
 
-        root.addProperty("defaultUncompletedIconColor", ColorHelper.asRGBString(BetterDisplayInfo.defaultUncompletedIconColor));
-        root.addProperty("defaultUncompletedTitleColor", ColorHelper.asRGBString(BetterDisplayInfo.defaultUncompletedTitleColor));
-        root.addProperty("defaultCompletedIconColor", ColorHelper.asRGBString(BetterDisplayInfo.defaultCompletedIconColor));
-        root.addProperty("defaultCompletedTitleColor", ColorHelper.asRGBString(BetterDisplayInfo.defaultCompletedTitleColor));
-        root.addProperty("doAdvancementsBackgroundFade", BetterAdvancementTab.doFade);
-        root.addProperty("showDebugCoordinates", BetterAdvancementsScreen.showDebugCoordinates);
-        root.addProperty("orderTabsAlphabetically", BetterAdvancementsScreen.orderTabsAlphabetically);
+        // Retired appearance/debug/color overrides no longer affect the screen invisibly.
+        CriterionGrid.colorWholeCriteriaText = false;
+        BetterAdvancementTab.doFade = true;
+        BetterAdvancementTabType.onlyUseAbove = false;
+        BetterAdvancementsScreen.keepAdvancementsTitle = true;
+        BetterAdvancementsScreenButton.addToInventory = false;
+        BetterAdvancementsScreen.showDebugCoordinates = false;
+        BetterAdvancementsScreen.orderTabsAlphabetically = false;
+        BetterDisplayInfo.defaultDrawDirectLines = false;
+        BetterDisplayInfo.defaultHideLines = false;
+        BetterDisplayInfo.defaultCompletedIconColor = ColorHelper.RGB(BetterDisplayInfo.defaultMinecraftCompletedIconColor);
+        BetterDisplayInfo.defaultUncompletedIconColor = ColorHelper.RGB(BetterDisplayInfo.defaultMinecraftUncompletedIconColor);
+        BetterDisplayInfo.defaultCompletedTitleColor = ColorHelper.RGB(BetterDisplayInfo.defaultMinecraftCompletedTitleColor);
+        BetterDisplayInfo.defaultUncompletedTitleColor = ColorHelper.RGB(BetterDisplayInfo.defaultMinecraftUncompletedTitleColor);
+        BetterDisplayInfo.defaultCompletedLineColor = BetterDisplayInfo.defaultUncompletedLineColor = ColorHelper.RGB("#FFFFFF");
+    }
+
+    static JsonObject configSnapshot() {
+        JsonObject root = new JsonObject();
         root.addProperty("windowScale", ScreenSize.clamp(BetterAdvancementsScreen.windowScale));
         root.addProperty("oldScreen", BetterAdvancementsScreen.combinedMode);
         root.addProperty("oldScreenSize", ScreenSize.clamp(BetterAdvancementsScreen.oldScreenSize));
-        root.addProperty("oldScreenTooltipProgress", BetterAdvancementsScreen.oldScreenTooltipProgress);
         root.addProperty("oldScreenRevealDepth", BetterAdvancementsScreen.oldScreenRevealDepth);
         root.addProperty("showProgress", BetterAdvancementsScreen.showProgress);
         root.addProperty("rememberPosition", BetterAdvancementsScreen.rememberPosition);
+        root.addProperty("rememberOldPosition", BetterAdvancementsScreen.rememberOldPosition);
         root.addProperty("stableLayout", BetterAdvancementsScreen.stableLayout);
-        root.addProperty("criteriaDetail", CriterionGrid.detailLevel.getName());
+        root.addProperty("showRequirements", CriterionGrid.detailLevel != CriteriaDetail.OFF);
         root.addProperty("criteriaDetailRequiresShift", CriterionGrid.requiresShift);
-        root.addProperty("colorWholeCriteriaText", CriterionGrid.colorWholeCriteriaText);
         root.addProperty("criteriaRotationSpeed", CriterionGrid.criteriaRotationSpeed);
-        root.addProperty("addInventoryButton", BetterAdvancementsScreenButton.addToInventory);
-        root.addProperty("defaultDrawDirectLines", BetterDisplayInfo.defaultDrawDirectLines);
-        root.addProperty("defaultHideLines", BetterDisplayInfo.defaultHideLines);
-        root.addProperty("defaultCompletedLineColor", ColorHelper.asRGBString(BetterDisplayInfo.defaultCompletedLineColor));
-        root.addProperty("defaultUncompletedLineColor", ColorHelper.asRGBString(BetterDisplayInfo.defaultUncompletedLineColor));
-        root.addProperty("onlyUseAboveAdvancementTabs", BetterAdvancementTabType.onlyUseAbove);
-        root.addProperty("keepAdvancementsTitle", BetterAdvancementsScreen.keepAdvancementsTitle);
-
-        try (FileWriter file = new FileWriter(getConfigFile())) {
-            file.write(new GsonBuilder().setPrettyPrinting().create().toJson(root));
-            file.flush();
-        } catch (IOException e) {
-            Constants.log.error(e);
-        }
+        return root;
     }
 
+    public static void writeToConfig() {
+        try (FileWriter file = new FileWriter(getConfigFile())) {
+            file.write(new GsonBuilder().setPrettyPrinting().create().toJson(configSnapshot()));
+        } catch (IOException error) { Constants.log.error(error); }
+    }
+    private static boolean bool(JsonObject root, String key, boolean fallback) {
+        return root.has(key) ? root.get(key).getAsBoolean() : fallback;
+    }
+    private static int integer(JsonObject root, String key, int fallback) {
+        return root.has(key) ? root.get(key).getAsInt() : fallback;
+    }
     public static File getConfigFile() throws IOException {
         return FabricLoader.getInstance().getConfigDir().resolve("betteradvancements.json").toFile();
     }

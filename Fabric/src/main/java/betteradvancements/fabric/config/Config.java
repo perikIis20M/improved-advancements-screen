@@ -13,10 +13,9 @@ public class Config {
 
         builder.setSavingRunnable(ConfigFileHandler::writeToConfig);
 
-        ConfigValues.buildScreen(builder.getOrCreateCategory(Component.translatable("category.improvedadvancements.screen")), builder.entryBuilder());
+        ConfigValues.buildModern(builder.getOrCreateCategory(Component.translatable("category.improvedadvancements.modern")), builder.entryBuilder());
+        ConfigValues.buildOld(builder.getOrCreateCategory(Component.translatable("category.improvedadvancements.old")), builder.entryBuilder());
         ConfigValues.buildDetails(builder.getOrCreateCategory(Component.translatable("category.improvedadvancements.details")), builder.entryBuilder());
-        ConfigValues.buildAppearance(builder.getOrCreateCategory(Component.translatable("category.improvedadvancements.appearance")), builder.entryBuilder());
-        ConfigValues.buildAdvanced(builder.getOrCreateCategory(Component.translatable("category.improvedadvancements.advanced")), builder.entryBuilder());
 
         return builder.build();
     }
