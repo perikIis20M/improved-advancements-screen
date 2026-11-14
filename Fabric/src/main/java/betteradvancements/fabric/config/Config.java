@@ -13,9 +13,9 @@ public class Config {
 
         builder.setSavingRunnable(ConfigFileHandler::writeToConfig);
 
+        ConfigValues.buildGeneral(builder.getOrCreateCategory(Component.translatable("category.improvedadvancements.general")), builder.entryBuilder());
         ConfigValues.buildModern(builder.getOrCreateCategory(Component.translatable("category.improvedadvancements.modern")), builder.entryBuilder());
         ConfigValues.buildOld(builder.getOrCreateCategory(Component.translatable("category.improvedadvancements.old")), builder.entryBuilder());
-        ConfigValues.buildDetails(builder.getOrCreateCategory(Component.translatable("category.improvedadvancements.details")), builder.entryBuilder());
 
         Screen screen = builder.build();
         ((AdvancementsConfigTabs) screen).improvedadvancements$enableArrowFreeTabs();

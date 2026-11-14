@@ -14,9 +14,6 @@ public final class ConfigValues {
     private ConfigValues() { }
 
     public static void buildModern(ConfigCategory category, ConfigEntryBuilder builder) {
-        category.addEntry(builder.startBooleanToggle(label("navigation_tabs"), BetterAdvancementsScreenButton.addToInventory)
-            .setDefaultValue(true).setTooltip(label("navigation_tabs.tip"))
-            .setSaveConsumer(value -> BetterAdvancementsScreenButton.addToInventory = value).build());
         category.addEntry(builder.startIntSlider(label("scale"), ScreenSize.clamp(BetterAdvancementsScreen.windowScale), ScreenSize.MIN, ScreenSize.MAX)
             .setDefaultValue(ScreenSize.DEFAULT).setTooltip(label("scale.tip"))
             .setSaveConsumer(value -> BetterAdvancementsScreen.windowScale = ScreenSize.clamp(value)).build());
@@ -46,7 +43,10 @@ public final class ConfigValues {
             .setSaveConsumer(value -> BetterAdvancementsScreen.rememberOldPosition = value).build());
     }
 
-    public static void buildDetails(ConfigCategory category, ConfigEntryBuilder builder) {
+    public static void buildGeneral(ConfigCategory category, ConfigEntryBuilder builder) {
+        category.addEntry(builder.startBooleanToggle(label("navigation_tabs"), BetterAdvancementsScreenButton.addToInventory)
+            .setDefaultValue(true).setTooltip(label("navigation_tabs.tip"))
+            .setSaveConsumer(value -> BetterAdvancementsScreenButton.addToInventory = value).build());
         category.addEntry(builder.startBooleanToggle(label("criteria"), CriterionGrid.detailLevel != CriteriaDetail.OFF)
             .setDefaultValue(true).setTooltip(label("criteria.tip"))
             .setSaveConsumer(ConfigValues::setRequirements).build());

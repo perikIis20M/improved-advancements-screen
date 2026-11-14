@@ -5,7 +5,7 @@
 - Added diamond navigation tabs between Survival inventory and both advancement views, enabled by default with a configuration toggle.
 - Matched Improved Statistics Screen's configuration header and category-bar proportions.
 - Removed the category navigation arrows and expanded the clickable tab area.
-- Kept Modern screen, Old screen and Advancement Details with their existing settings and migration.
+- Put General first, followed by Modern screen and Old screen. General contains the shared navigation-tab toggle and requirement settings, with existing preferences preserved.
 - Added the MIT attribution for the adapted configuration layout code.
 
 ## 1.0

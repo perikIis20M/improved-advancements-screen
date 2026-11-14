@@ -4,7 +4,7 @@
   "title.betteradvancements.config": "Improved Advancements Screen Settings",
   "category.improvedadvancements.modern": "Modern screen",
   "category.improvedadvancements.old": "Old screen",
-  "category.improvedadvancements.details": "Advancement Details",
+  "category.improvedadvancements.general": "General",
   "option.improvedadvancements.navigation_tabs": "Inventory and advancement tabs",
   "option.improvedadvancements.navigation_tabs.tip": "Show a diamond tab to switch between Survival inventory and advancements. Applies to both modern and Old screens. Keeps its normal size and uses a free slot beside existing tabs. Reopen the screen to apply.",
   "option.improvedadvancements.scale": "Screen size",
