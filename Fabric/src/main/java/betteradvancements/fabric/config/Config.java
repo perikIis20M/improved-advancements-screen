@@ -17,6 +17,8 @@ public class Config {
         ConfigValues.buildOld(builder.getOrCreateCategory(Component.translatable("category.improvedadvancements.old")), builder.entryBuilder());
         ConfigValues.buildDetails(builder.getOrCreateCategory(Component.translatable("category.improvedadvancements.details")), builder.entryBuilder());
 
-        return builder.build();
+        Screen screen = builder.build();
+        ((AdvancementsConfigTabs) screen).improvedadvancements$enableArrowFreeTabs();
+        return screen;
     }
 }

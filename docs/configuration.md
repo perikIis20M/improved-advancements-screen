@@ -2,6 +2,8 @@
 
 Open Mod Menu → Improved Advancements Screen → Configure.
 
+The title, category spacing and arrow-free tab bar match Improved Statistics Screen. This layout is enabled only for this mod's configuration screen; other Cloth Config menus keep their own layout.
+
 ## Modern screen
 
 - Screen size: size of the tabbed window.
@@ -39,3 +41,5 @@ The retired Appearance, Advanced and whole-text-color controls are removed. Old 
 5. Save, restart Minecraft and verify preferences persist. Check locked and unknown classic goals retain prerequisite hints.
 
 Automated migration tests do not replace this in-game visual check.
+
+For 1.0+26.3, the Fabric shadow JAR builds successfully. A no-window Fabric/Knot check applies the actual Cloth Config screen and tab mixins. The same check also passes with a fixture compiled from the supplied Statistics Screen's original layout mixins, confirming those transformations can coexist. This validates transformation compatibility, not a complete in-game comparison of both mods. No Minecraft window was opened or controlled for this change.

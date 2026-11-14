@@ -44,6 +44,8 @@ Based on [Better Advancements](https://github.com/way2muchnoise/BetterAdvancemen
 
 Classic Minecraft artwork belongs to **Mojang**. This is an unofficial project and is not affiliated with Mojang or Microsoft.
 
+The configuration header and arrow-free category bar are adapted from **Improved Statistics Screen** by CoolAid48 and Johnfrag. The adapted code retains its [MIT notice](Fabric/src/main/resources/licenses/ImprovedStatisticsScreen-MIT.txt).
+
 The original [Don't Be a Jerk non-commercial license](LICENSE.md) is preserved. It applies to this derivative; please read it before using or redistributing the code.
 
 Report problems through this repository's [issue tracker](https://github.com/perikIis20M/improved-advancements-screen/issues).

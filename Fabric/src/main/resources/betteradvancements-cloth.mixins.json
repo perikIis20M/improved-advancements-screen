@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "package": "betteradvancements.mixin.config",
+  "plugin": "betteradvancements.mixin.config.ClothConfigMixinPlugin",
+  "compatibilityLevel": "JAVA_25",
+  "minVersion": "0.8",
+  "client": ["ClothConfigScreenMixin", "ClothConfigTabButtonMixin"],
+  "injectors": { "defaultRequire": 1 }
+}

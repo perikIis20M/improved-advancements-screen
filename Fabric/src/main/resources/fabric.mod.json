@@ -27,7 +27,8 @@
       ]
     },
     "mixins": [
-      "betteradvancements.mixins.json"
+      "betteradvancements.mixins.json",
+      "betteradvancements-cloth.mixins.json"
     ],
     "depends": {
       "fabricloader": ">=0.19",

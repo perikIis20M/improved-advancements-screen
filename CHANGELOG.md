@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0+26.3
+
+- Matched Improved Statistics Screen's configuration header and category-bar proportions.
+- Removed the category navigation arrows and expanded the clickable tab area.
+- Kept Modern screen, Old screen and Advancement Details with their existing settings and migration.
+- Added the MIT attribution for the adapted configuration layout code.
+
 ## 1.0
 
 Changes since 0.7.8:
