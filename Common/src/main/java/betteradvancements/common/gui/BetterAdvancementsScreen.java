@@ -653,6 +653,18 @@ public class BetterAdvancementsScreen extends Screen implements ClientAdvancemen
         }
     }
 
+    public NavigationTabLayout.Rect navigationFrame() {
+        int left = SIDE + (width - internalWidth) / 2;
+        return new NavigationTabLayout.Rect(left, windowTop(), internalWidth - 2 * SIDE, windowBottom() - windowTop());
+    }
+
+    public List<NavigationTabLayout.Rect> navigationObstacles() {
+        var frame = navigationFrame();
+        int maxTabs = BetterAdvancementTabType.getMaxTabs(frame.width(), frame.height());
+        return tabs.size() <= 1 ? List.of() : tabs.values().stream().skip((long) tabPage * maxTabs).limit(maxTabs)
+            .map(tab -> tab.tabBounds(frame.x(), frame.y(), frame.width(), frame.height())).toList();
+    }
+
     private int mapWidth() {
         return Math.max(1, this.internalWidth - 2 * SIDE - 2 * PADDING);
     }

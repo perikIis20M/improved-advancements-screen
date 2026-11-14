@@ -34,6 +34,7 @@ public class ConfigFileHandler {
         BetterAdvancementsScreen.rememberPosition = bool(root, "rememberPosition", true);
         BetterAdvancementsScreen.rememberOldPosition = bool(root, "rememberOldPosition", BetterAdvancementsScreen.rememberPosition);
         BetterAdvancementsScreen.stableLayout = bool(root, "stableLayout", true);
+        BetterAdvancementsScreenButton.addToInventory = bool(root, "navigationTabs", true);
         boolean requirements = root.has("showRequirements") ? root.get("showRequirements").getAsBoolean()
             : !root.has("criteriaDetail") || CriteriaDetail.fromName(root.get("criteriaDetail").getAsString()) != CriteriaDetail.OFF;
         ConfigValues.setRequirements(requirements);
@@ -45,7 +46,6 @@ public class ConfigFileHandler {
         BetterAdvancementTab.doFade = true;
         BetterAdvancementTabType.onlyUseAbove = false;
         BetterAdvancementsScreen.keepAdvancementsTitle = true;
-        BetterAdvancementsScreenButton.addToInventory = false;
         BetterAdvancementsScreen.showDebugCoordinates = false;
         BetterAdvancementsScreen.orderTabsAlphabetically = false;
         BetterDisplayInfo.defaultDrawDirectLines = false;
@@ -67,6 +67,7 @@ public class ConfigFileHandler {
         root.addProperty("rememberPosition", BetterAdvancementsScreen.rememberPosition);
         root.addProperty("rememberOldPosition", BetterAdvancementsScreen.rememberOldPosition);
         root.addProperty("stableLayout", BetterAdvancementsScreen.stableLayout);
+        root.addProperty("navigationTabs", BetterAdvancementsScreenButton.addToInventory);
         root.addProperty("showRequirements", CriterionGrid.detailLevel != CriteriaDetail.OFF);
         root.addProperty("criteriaDetailRequiresShift", CriterionGrid.requiresShift);
         root.addProperty("criteriaRotationSpeed", CriterionGrid.criteriaRotationSpeed);

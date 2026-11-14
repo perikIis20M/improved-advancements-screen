@@ -1,6 +1,7 @@
 package betteradvancements.fabric.config;
 
 import betteradvancements.common.gui.BetterAdvancementsScreen;
+import betteradvancements.common.gui.BetterAdvancementsScreenButton;
 import betteradvancements.common.gui.OldScreenVisibility;
 import betteradvancements.common.gui.ScreenSize;
 import betteradvancements.common.util.CriteriaDetail;
@@ -13,6 +14,9 @@ public final class ConfigValues {
     private ConfigValues() { }
 
     public static void buildModern(ConfigCategory category, ConfigEntryBuilder builder) {
+        category.addEntry(builder.startBooleanToggle(label("navigation_tabs"), BetterAdvancementsScreenButton.addToInventory)
+            .setDefaultValue(true).setTooltip(label("navigation_tabs.tip"))
+            .setSaveConsumer(value -> BetterAdvancementsScreenButton.addToInventory = value).build());
         category.addEntry(builder.startIntSlider(label("scale"), ScreenSize.clamp(BetterAdvancementsScreen.windowScale), ScreenSize.MIN, ScreenSize.MAX)
             .setDefaultValue(ScreenSize.DEFAULT).setTooltip(label("scale.tip"))
             .setSaveConsumer(value -> BetterAdvancementsScreen.windowScale = ScreenSize.clamp(value)).build());

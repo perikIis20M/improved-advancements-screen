@@ -92,7 +92,8 @@ public final class LegacyAchievementsScreen extends Screen implements ClientAdva
     protected void init() {
         dragging = false;
         var oldGeometry = geometry;
-        geometry = LegacyScreenGeometry.create(width, height, BetterAdvancementsScreen.oldScreenSize);
+        geometry = LegacyScreenGeometry.create(width, height, BetterAdvancementsScreen.oldScreenSize,
+            BetterAdvancementsScreenButton.isAvailable());
         if (positioned && oldGeometry != null) {
             // Keep the same map center when the available window changes.
             double dx = (oldGeometry.mapWidth() - geometry.mapWidth()) * zoom / 2.0;
@@ -109,6 +110,10 @@ public final class LegacyAchievementsScreen extends Screen implements ClientAdva
         AdvancementNode root = nodes.get("minecraft:story/root");
         if (root == null && !nodes.isEmpty()) root = nodes.values().iterator().next().root();
         if (root != null) advancements.setSelectedTab(root.holder(), true);
+    }
+
+    public NavigationTabLayout.Rect navigationFrame() {
+        return new NavigationTabLayout.Rect(geometry.left(), geometry.top(), geometry.width(), geometry.height());
     }
 
     private void loadCatalogue() {

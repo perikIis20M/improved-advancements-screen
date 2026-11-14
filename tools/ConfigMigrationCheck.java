@@ -1,6 +1,7 @@
 package betteradvancements.fabric.config;
 
 import betteradvancements.common.gui.BetterAdvancementsScreen;
+import betteradvancements.common.gui.BetterAdvancementsScreenButton;
 import betteradvancements.common.util.CriteriaDetail;
 import betteradvancements.common.util.CriterionGrid;
 import com.google.gson.JsonObject;
@@ -14,6 +15,7 @@ public final class ConfigMigrationCheck {
         SharedConstants.tryDetectVersion();
         Bootstrap.bootStrap();
         ConfigFileHandler.applyConfig(new JsonObject());
+        require(BetterAdvancementsScreenButton.addToInventory, "Navigation enabled on fresh configs");
         require(CriterionGrid.detailLevel == CriteriaDetail.DEFAULT && BetterAdvancementsScreen.oldScreenTooltipProgress, "Fresh shared details enabled in both views");
         JsonObject old = new JsonObject();
         old.addProperty("rememberPosition", false);
@@ -36,7 +38,7 @@ public final class ConfigMigrationCheck {
             BetterAdvancementsScreen.rememberPosition = modern;
             BetterAdvancementsScreen.rememberOldPosition = classic;
             JsonObject saved = ConfigFileHandler.configSnapshot();
-            require(saved.size() == 11, "Only supported settings serialized");
+            require(saved.size() == 12, "Only supported settings serialized");
             ConfigValues.setRequirements(!requirements);
             BetterAdvancementsScreen.rememberPosition = !modern;
             BetterAdvancementsScreen.rememberOldPosition = !classic;
@@ -49,6 +51,13 @@ public final class ConfigMigrationCheck {
         precedence.addProperty("criteriaDetail", "Off");
         ConfigFileHandler.applyConfig(precedence);
         require(BetterAdvancementsScreen.oldScreenTooltipProgress && CriterionGrid.detailLevel == CriteriaDetail.DEFAULT, "New shared key takes precedence over retired keys");
+        precedence.addProperty("navigationTabs", false);
+        ConfigFileHandler.applyConfig(precedence);
+        require(!BetterAdvancementsScreenButton.addToInventory, "Navigation can be disabled");
+        JsonObject disabled = ConfigFileHandler.configSnapshot();
+        ConfigFileHandler.applyConfig(new JsonObject());
+        ConfigFileHandler.applyConfig(disabled);
+        require(!BetterAdvancementsScreenButton.addToInventory, "Disabled navigation survives save/reload");
         System.out.println("PASS: " + checks + " config migration, shared toggle, independent memory, defaults and round-trip checks; no player file accessed.");
     }
     private static void require(boolean condition, String message) {

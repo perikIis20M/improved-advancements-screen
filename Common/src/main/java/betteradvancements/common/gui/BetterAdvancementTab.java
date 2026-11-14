@@ -76,6 +76,10 @@ public class BetterAdvancementTab {
     public int treeWidth() { return this.maxX - this.minX; }
     public int treeHeight() { return this.maxY - this.minY; }
 
+    NavigationTabLayout.Rect tabBounds(int left, int top, int width, int height) {
+        return type.bounds(left, top, width, height, index);
+    }
+
     public void drawTab(GuiGraphicsExtractor guiGraphics, int left, int top, int width, int height, boolean selected) {
         this.type.draw(guiGraphics, left, top, width, height, selected, this.index);
     }

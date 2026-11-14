@@ -123,6 +123,10 @@ public class BetterAdvancementTabType {
         return mouseX > i && mouseX < i + this.width && mouseY > j && mouseY < j + this.height;
     }
 
+    NavigationTabLayout.Rect bounds(int left, int top, int width, int height, int index) {
+        return new NavigationTabLayout.Rect(left + getX(index, width, height), top + getY(index, width, height), this.width, this.height);
+    }
+
     private int getMax(int width, int height) {
         return switch (tabType) {
             case LEFT, RIGHT -> height / 32;

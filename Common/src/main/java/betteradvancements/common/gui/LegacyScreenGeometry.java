@@ -9,13 +9,18 @@ public record LegacyScreenGeometry(int left, int top, int width, int height) {
     public static int clampSize(int percent) { return ScreenSize.clamp(percent); }
 
     public static LegacyScreenGeometry create(int width, int height, int percent) {
-        double availableWidth = Math.max(1, width - 8), availableHeight = Math.max(1, height - 8);
+        return create(width, height, percent, false);
+    }
+
+    public static LegacyScreenGeometry create(int width, int height, int percent, boolean navigationTab) {
+        int header = navigationTab ? NavigationTabLayout.TOP_SPACE : 0;
+        double availableWidth = Math.max(1, width - 8), availableHeight = Math.max(1, height - 8 - header);
         double largestScale = Math.min(availableWidth / FRAME_WIDTH, availableHeight / FRAME_HEIGHT);
         // As with the modern window, stop shrinking at the size needed by fixed-size controls.
         double size = Math.max(Math.min(1, largestScale), largestScale * clampSize(percent) / 100.0);
         int frameWidth = Math.min((int) availableWidth, (int) Math.floor(FRAME_WIDTH * size + 1.0E-7));
         int frameHeight = Math.min((int) availableHeight, (int) Math.floor(FRAME_HEIGHT * size + 1.0E-7));
-        return new LegacyScreenGeometry((width - frameWidth) / 2, (height - frameHeight) / 2, frameWidth, frameHeight);
+        return new LegacyScreenGeometry((width - frameWidth) / 2, header + (height - header - frameHeight) / 2, frameWidth, frameHeight);
     }
 
     public int mapWidth() { return width - (FRAME_WIDTH - MAP_WIDTH); }

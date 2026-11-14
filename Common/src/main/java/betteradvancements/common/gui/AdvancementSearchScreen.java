@@ -41,7 +41,8 @@ public final class AdvancementSearchScreen extends Screen {
 
     @Override protected void init() {
         if (parent instanceof LegacyAchievementsScreen) {
-            classicFrame = LegacyScreenGeometry.create(width, height, BetterAdvancementsScreen.oldScreenSize);
+            classicFrame = LegacyScreenGeometry.create(width, height, BetterAdvancementsScreen.oldScreenSize,
+                BetterAdvancementsScreenButton.isAvailable());
             layout = AdvancementSearchLayout.classic(classicFrame);
         } else {
             modernFrame = ModernScreenGeometry.create(width, height, BetterAdvancementsScreen.windowScale);
