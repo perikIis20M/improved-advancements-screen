@@ -15,6 +15,7 @@ import net.minecraft.world.level.GameType;
 /** A normal accessible button with the advancement-tab frame and a diamond item icon. */
 public final class BetterAdvancementsScreenButton extends Button {
     public static boolean addToInventory = true;
+    private final boolean onAdvancementsScreen;
 
     public BetterAdvancementsScreenButton(boolean toInventory) {
         super(0, 0, NavigationTabLayout.WIDTH, NavigationTabLayout.HEIGHT,
@@ -24,6 +25,7 @@ public final class BetterAdvancementsScreenButton extends Button {
                 mc.setScreenAndShow(toInventory ? new InventoryScreen(mc.player)
                     : BetterAdvancementsScreen.create(mc.player.connection.getAdvancements(), mc.gui.screen()));
             }, DEFAULT_NARRATION);
+        onAdvancementsScreen = toInventory;
         setTooltip(Tooltip.create(getMessage()));
     }
 
@@ -34,8 +36,8 @@ public final class BetterAdvancementsScreenButton extends Button {
     }
 
     @Override protected void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float delta) {
-        graphics.blit(RenderPipelines.GUI_TEXTURED, Resources.Gui.TABS, getX(), getY(), 56, 0, 28, 32, 256, 256);
-        if (isHoveredOrFocused()) graphics.outline(getX() + 2, getY() + 2, getWidth() - 4, getHeight() - 4, 0xFFFFFFFF);
+        graphics.blit(RenderPipelines.GUI_TEXTURED, Resources.Gui.TABS, getX(), getY(), 56,
+            onAdvancementsScreen ? 32 : 0, 28, 32, 256, 256);
         graphics.fakeItem(new ItemStack(Items.DIAMOND), getX() + 6, getY() + 9);
     }
 }
